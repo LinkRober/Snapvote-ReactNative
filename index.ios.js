@@ -16,13 +16,12 @@ import {
 } from 'react-native';
 
 import API from './API.js'
-// import {deviceRegister} from './API'
 export default class Snapvote extends Component {
 
   constructor(props){
     super(props)
     this.Api = new API();
-    let response = this.Api.deviceRegister()
+    this.Api.deviceRegister()
   }
 
   render() {

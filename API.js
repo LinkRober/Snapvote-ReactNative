@@ -8,6 +8,7 @@ let Environment = {
     development:0,
     release:1,
 }
+import 'whatwg-fetch';
 
 export default class API {
 
@@ -16,17 +17,18 @@ export default class API {
     }
 
     async deviceRegister(){
-        try {
-            let uid = "?uid=86A05447-85DD-4F12-A0A6-E435B6C44A87"
-            console.log(this.baseUrl(this.environment));
-            //`${this.baseUrl(this.environment)}${uid}`
-            let response = await fetch('https://facebook.github.io/react-native/movies.json');
-            console.log(response);
-            let responseJson =  await response.json();
-            return responseJson.movies;
-        } catch(error){
-            console.error(error);
-        }
+        let uid = "?uid=86A05447-85DD-4F12-A0A6-E435B6C44A87"
+        console.log(this.baseUrl(this.environment));
+        //`${this.baseUrl(this.environment)}${uid}`
+        fetch('https://facebook.github.io/react-native/movies.json')
+        .then((response) => response.json())
+        .then((responseJson) => {
+            console.log(responseJson.movies);
+            // return responseJson.movies;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
     }
 
     baseUrl(environment){
