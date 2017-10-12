@@ -18,12 +18,12 @@
 {
   NSURL *jsCodeLocation;
 #if DEBUG
-  jsCodeLocation = [NSURL URLWithString:@"http://10.0.30.104:8081/index.ios.bundle?platform=ios"];
+  jsCodeLocation = [NSURL URLWithString:@"http://10.0.30.119:8081/index.ios.bundle?platform=ios"];
 #else
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 #endif
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"Snapvote"
+                                                      moduleName:@"HomeView"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
