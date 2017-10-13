@@ -10,9 +10,10 @@ import {
 
 import HomeView from './RNView/HomeView.js';
 import SettingView from './RNView/SettingView.js'
+import TabbarView from './RNView/TabbarView.js'
 AppRegistry.registerComponent('HomeView',() => HomeView); 
 AppRegistry.registerComponent('SettingView',() => SettingView);
-
+AppRegistry.registerComponent('TabberView',() => TabbarView);
 // import API from './API/API.js'
     // this.Api = new API();
     // let uid = "6166325F-5F1B-4AB3-B802-4379954F52E1"

@@ -11,55 +11,35 @@ import {
     NavigatorIOS,
     TouchableHighlight,
     Image,
+    TabBarIOS,
+    ListView
 } from 'react-native';
 
 import SettingView from '../RNView/SettingView.js'
-
+var { width, height } = require('Dimensions').get('window');
 export default class HomeView extends Component {
     constructor(props){
-        super(props)
-        this._handleNavigationRequest = this._handleNavigationRequest.bind(this);
+        super(props);
+        const ds = new ListView.DataSource({rowHasChanged:(r1,r2) => r1 !== r2});
+        this.state = {
+            dataSource:ds.cloneWithRows(['create a rate it vote','create a left or right vote'])
+        }
     }
 
     render() {
-        return <NavigatorIOS
+        return (<ListView
+                    dataSource={this.state.dataSource}
+                    renderRow={this.renderCell}
+                />)
         
-            initialRoute = {{
-                component:HomeScreen,
-                title:'Snapvote',
-                //leftButtonIcon:require('../img/home_setting_icon.png'),
-                //translucent:false,
-                leftButtonTitle:'Setting',
-                onLeftButtonPress:this._handleNavigationRequest,
-            }}
-            style={{flex:1}}
-        />
       }
 
-      _handleNavigationRequest(){
-        this.refs.nav.push({
-            title:'Setting',
-            component:SettingView,
-        });
+      renderCell = ({title,index}) => {
+        return <Text>index</Text>
       }
+
+
 }
 
-class HomeScreen extends Component {
-    constructor(props){
-        super(props)
-    }
-    _onForward = () => {
-        this.props.navigator.push({
-          title: 'Scene ' + nextIndex,
-        });
-      }
-    
-      render() {
-        return (
-          <View style={{flex:1,flexDirection:'column',backgroundColor:'#40365B'}}>
-            <Text style={{marginTop:100}}>dddddddd</Text>
-          </View>
-        )
-      }
-}
+
 

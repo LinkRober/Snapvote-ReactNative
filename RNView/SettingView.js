@@ -9,6 +9,7 @@ import {
     Text,
     View,
     NavigatorIOS,
+    Modal
 } from 'react-native';
 
 export default class SettingView extends Component {
@@ -17,8 +18,18 @@ export default class SettingView extends Component {
     }
 
     render(){
-        return <Text>
+        return <Modal
+                animationType="slide"
+                transparent={false}
+                visible={this.props.modalVisible}
+                onRequestClose={() => {
+                    console.log('xxx');
+                }}
+                >
+                <Text>
             text
         </Text>
+            </Modal>
+        
     }
 }
