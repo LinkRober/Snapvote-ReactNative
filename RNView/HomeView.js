@@ -12,7 +12,8 @@ import {
     TouchableHighlight,
     Image,
     TabBarIOS,
-    ListView
+    ListView,
+    Button
 } from 'react-native';
 
 import SettingView from '../RNView/SettingView.js'
@@ -30,13 +31,47 @@ export default class HomeView extends Component {
         return (<ListView
                     dataSource={this.state.dataSource}
                     renderRow={this.renderCell}
+                    renderHeader = {this.listHeader}
                 />)
-        
       }
 
-      renderCell = ({title,index}) => {
-        return <Text>index</Text>
+      listHeader(){
+          return <View>
+              <View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center',height:58}}>
+                <View>
+                    <Text style={{color:'#40365B'}}>———— snapvote mode ————</Text>
+                </View>
+                
+            </View>
+          </View>
       }
+
+      renderCell(title,sessionID,rowID) {
+        let cellHeight = (height - 64 - 48 - 58)/2;
+        if(rowID == 0){
+            return <View style={{flex:1,flexDirection:'column',height:cellHeight,justifyContent:'center'}}>
+                <View style={{flex:1,height:cellHeight-20,backgroundColor:'red'}}>
+                    <View style={{backgroundColor:'#0F7DFF',marginLeft:20,marginRight:20,marginTop:cellHeight - 58,borderRadius:10}}>
+                        <Button
+                        onPress = {() => {console.log('xxx')}}
+                        title = {title}
+                        color = 'white'
+                        />
+                    </View>
+                </View>
+            </View>
+        }else {
+            return <View style={{flex:1,height:cellHeight}}>
+            <View style={{height:cellHeight-20,backgroundColor:'green'}}>
+                <View>
+                    <Text>{title}</Text>
+                </View>
+            </View>
+        </View>                                    
+        }
+      }
+
+
 
 
 }
