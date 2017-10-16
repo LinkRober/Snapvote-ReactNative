@@ -51,12 +51,8 @@ export default class HomeView extends Component {
         if(rowID == 0){
             return <View style={{flex:1,flexDirection:'column',height:cellHeight,justifyContent:'center'}}>
                 <View style={{flex:1,height:cellHeight-20,backgroundColor:'red'}}>
-                    <View style={{backgroundColor:'#0F7DFF',marginLeft:20,marginRight:20,marginTop:cellHeight - 58,borderRadius:10}}>
-                        <Button
-                        onPress = {() => {console.log('xxx')}}
-                        title = {title}
-                        color = 'white'
-                        />
+                    <View style={{backgroundColor:'#0F7DFF',marginLeft:20,marginRight:20,marginTop:cellHeight - 58,alignItems:'center',borderRadius:10}}>
+                        <Text style={{borderRadius:10,height:38,fontWeight:'bold',color:'white'}}>{title}</Text>
                     </View>
                 </View>
             </View>
