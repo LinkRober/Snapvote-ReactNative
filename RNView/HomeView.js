@@ -13,7 +13,8 @@ import {
     Image,
     TabBarIOS,
     ListView,
-    Button
+    Button,
+    TouchableOpacity,
 } from 'react-native';
 
 import SettingView from '../RNView/SettingView.js'
@@ -32,14 +33,15 @@ export default class HomeView extends Component {
                     dataSource={this.state.dataSource}
                     renderRow={this.renderCell}
                     renderHeader = {this.listHeader}
+                    backgroundColor='#f0f3f5'
                 />)
       }
 
       listHeader(){
           return <View>
-              <View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center',height:58}}>
+              <View style={{flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center',height:40,backgroundColor:'#f0f3f5'}}>
                 <View>
-                    <Text style={{color:'#40365B'}}>———— snapvote mode ————</Text>
+                    <Text style={{color:'#40365B',opacity:0.6,marginTop:8}}>———— snapvote mode ————</Text>
                 </View>
                 
             </View>
@@ -49,25 +51,53 @@ export default class HomeView extends Component {
       renderCell(title,sessionID,rowID) {
         let cellHeight = (height - 64 - 48 - 58)/2;
         if(rowID == 0){
-            return <View style={{flex:1,flexDirection:'column',height:cellHeight,justifyContent:'center'}}>
-                <View style={{flex:1,height:cellHeight-20,backgroundColor:'red'}}>
-                    <View style={{backgroundColor:'#0F7DFF',marginLeft:20,marginRight:20,marginTop:cellHeight - 58,alignItems:'center',borderRadius:10}}>
-                        <Text style={{borderRadius:10,height:38,fontWeight:'bold',color:'white'}}>{title}</Text>
-                    </View>
+            return <View style={{flex:1,flexDirection:'column',height:cellHeight,justifyContent:'center',backgroundColor:'#f0f3f5'}}>
+                <View style={{height:cellHeight-20,backgroundColor:'white',marginLeft:28,marginRight:28,borderRadius:12}}>
+
+                        <View style={{alignItems:'center'}}>
+                            <Image
+                                style={{width:122,height:92,marginTop:20}}
+                                source={require('../img/rate_me_icon.png')}
+                            />
+                        </View>
+                        
+
+                        <View style={{backgroundColor:'#0F7DFF',marginLeft:28,marginRight:28,marginTop:20,height:35,justifyContent:'center',alignItems:'center',borderRadius:19}}>
+                        <TouchableOpacity onPress={() => {
+                        //
+                        }}>
+                            <Text style={{color:'white',fontSize:17}} >{title}</Text>
+                            </TouchableOpacity>
+
+                        </View>
                 </View>
             </View>
         }else {
-            return <View style={{flex:1,height:cellHeight}}>
-            <View style={{height:cellHeight-20,backgroundColor:'green'}}>
-                <View>
-                    <Text>{title}</Text>
+            return <View style={{flex:1,flexDirection:'column',height:cellHeight,justifyContent:'center',backgroundColor:'#f0f3f5'}}>
+                <View style={{height:cellHeight-20,backgroundColor:'white',marginLeft:28,marginRight:28,borderRadius:12}}>
+
+                        <View style={{alignItems:'center'}}>
+                            <Image
+                                style={{width:122,height:92,marginTop:20}}
+                                source={require('../img/left_or_right_icon.png')}
+                            />
+                        </View>
+                        
+
+                        <View style={{backgroundColor:'#8B48FF',marginLeft:28,marginRight:28,marginTop:20,height:35,justifyContent:'center',alignItems:'center',borderRadius:19}}>
+                        <TouchableOpacity onPress={() => {
+                        //
+                        }}>
+                            <Text style={{color:'white',fontSize:17}} >{title}</Text>
+                            </TouchableOpacity>
+
+                        </View>
                 </View>
-            </View>
-        </View>                                    
+            </View>                                
         }
       }
 
-
+      
 
 
 }
