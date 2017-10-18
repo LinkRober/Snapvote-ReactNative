@@ -22,6 +22,7 @@ var { width, height } = require('Dimensions').get('window');
 export default class HomeView extends Component {
     constructor(props){
         super(props);
+
         const ds = new ListView.DataSource({rowHasChanged:(r1,r2) => r1 !== r2});
         this.state = {
             dataSource:ds.cloneWithRows(['create a rate it vote','create a left or right vote'])
@@ -96,10 +97,6 @@ export default class HomeView extends Component {
             </View>                                
         }
       }
-
-      
-
-
 }
 
 
