@@ -279,12 +279,19 @@ export default class TabbarView extends Component{
                             renderRow={this.renderCell}
                             backgroundColor='#f0f3f5'
                             renderSectionHeader = {this.renderSectionHeader}
+                            renderFooter = {this.footer}
                         />
                     </View>
                 </View>
             </Modal>
 
 
+        </View>
+    }
+
+    footer(){
+        return <View style={{flexDirection:'row',justifyContent:'center'}}>
+            <Text style={{fontSize:12,marginTop:10}}>Snapvote#quvideo.copyright</Text>
         </View>
     }
 
@@ -295,7 +302,6 @@ export default class TabbarView extends Component{
     }
 
     renderCell(rowData, sectionID, rowID){
-        console.log(rowData);
         if (sectionID == 0){
             if (rowID == 0){
                 return <View style={{height:66,backgroundColor:'#f0f3f5'}}>
@@ -332,16 +338,45 @@ export default class TabbarView extends Component{
                     </View>
                 </View>
             }
-        }
-        
-        // if (sessionID == 1){
-        //     if
-        // }
-        return <View style={{height:66,backgroundColor:'#f0f3f5'}}>
+        }else {
+            if(rowID == 1) {
+                return <View style={{height:66,backgroundColor:'#f0f3f5'}}>
+                <View style={{height:56,backgroundColor:'white',marginLeft:20,marginRight:20,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
+                        <Text style={{marginLeft:10}}>{rowData}</Text>
+                        <View style={{width:150,flexDirection:'row',justifyContent:'space-between',marginRight:10}}>
+                            <Image
+                                style={{width:20,height:20}}
+                                source={require('../img/fill_icon.png')}
+                            />
+                            <Image
+                                style={{width:20,height:20}}
+                                source={require('../img/fill_icon.png')}
+                            />
+                            <Image
+                                style={{width:20,height:20}}
+                                source={require('../img/fill_icon.png')}
+                            />
+                            <Image
+                                style={{width:20,height:20}}
+                                source={require('../img/unfill.png')}
+                            />
+                            <Image
+                                style={{width:20,height:20}}
+                                source={require('../img/unfill.png')}
+                            />
+                            
+                        </View>
+                    </View>
+                </View>
+            }
+
+            return <View style={{height:66,backgroundColor:'#f0f3f5'}}>
                 <View style={{height:56,backgroundColor:'white',marginLeft:20,marginRight:20,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
                     <Text style={{marginLeft:10}}>{rowData}</Text>
                 </View>
             </View>
+        }
+        
     }
 
     render(){
