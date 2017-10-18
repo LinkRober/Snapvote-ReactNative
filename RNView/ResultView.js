@@ -64,7 +64,7 @@ export default class ResultView extends Component {
     }
 
     _onPressButton(){
-
+        
     }
 
     render(){
