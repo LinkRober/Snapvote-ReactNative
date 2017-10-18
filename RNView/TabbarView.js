@@ -209,7 +209,9 @@ export default class TabbarView extends Component{
                 this.setState({
                     settingVisible:true
                 });
-            })
+            }),
+            barTintColor: title == 'Snapvote' ? 'white':'#4CABFE',
+            titleTextColor: title == 'Snapvote' ? 'black':'white',
             //passProps:{data},
         }}
         style={{flex:1}}
