@@ -202,10 +202,6 @@ export default class TabbarView extends Component{
             translucent:false,
             leftButtonTitle: title == 'Snapvote' ? 'Setting' : '',
             onLeftButtonPress:(() => {
-                  //this.refs.nav.present({
-                  //title:'Setting',
-                  //component:SettingView,
-                //});
                 this.setState({
                     settingVisible:true
                 });

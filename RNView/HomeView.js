@@ -70,11 +70,12 @@ export default class HomeView extends Component {
                                     component:LeftOrRightView,
                                     leftButtonTitle:'back',
                                     rightButtonTitle:'next',
+                                    showTabBar: true,
                                     onLeftButtonPress:(() => {
                                         this.props.navigator.pop();
                                     }),
                                     onRightButtonPress:(() => {
-                                        
+
                                     }),
                                     barTintColor:'#8B48FF',
                                     titleTextColor:'white'
